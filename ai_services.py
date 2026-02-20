@@ -1,11 +1,13 @@
 from openai import OpenAI
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
 
 
 
 # client = OpenAI(
-#     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+#     base_url="https:  //generativelanguage.googleapis.com/v1beta/openai/",
 #     api_key = 'AIzaSyCMichKA1DkBGReSYOgk4JVXLw21_Fb4Aw'
 # )
 client = OpenAI(

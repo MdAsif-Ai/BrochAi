@@ -23,7 +23,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[""],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -31,19 +31,11 @@ app.add_middleware(
 
 
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 import os
 
 # Serve built frontend
 if os.path.exists("dist"):
-    app.mount("/static", StaticFiles(directory="dist"), name="static")
-
-@app.get("/")
-def serve_react():
-    index_path = os.path.join("dist", "index.html")
-    if os.path.exists(index_path):
-        return FileResponse(index_path)
-    return {"error": "Frontend not built"}
+    app.mount("/", StaticFiles(directory="dist", html=True), name="dist")
 
 @app.post("/generate-brochure")
 async def generate_brochure(request: BrochureRequest):
