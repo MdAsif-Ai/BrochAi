@@ -3,11 +3,15 @@ import os
 
 
 
+
+# client = OpenAI(
+#     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+#     api_key = 'AIzaSyCMichKA1DkBGReSYOgk4JVXLw21_Fb4Aw'
+# )
 client = OpenAI(
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-    api_key = 'AIzaSyCMichKA1DkBGReSYOgk4JVXLw21_Fb4Aw'
+    api_key = os.getenv('GOOGLE_API_KEY')
 )
-
 MODEL = 'gemini-2.5-flash'
 sys_prompt = """ 
 
