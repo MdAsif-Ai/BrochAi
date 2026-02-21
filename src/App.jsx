@@ -37,7 +37,7 @@ export default function App() {
     setSuccess(false);
 
     try {
-      const response = await fetch("https://brochai.onrender.com/", {
+      const response = await fetch("https://brochai.onrender.com/generate-brochure", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
