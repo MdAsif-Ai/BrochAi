@@ -35,7 +35,7 @@ import os
 
 # Serve built frontend
 if os.path.exists("dist"):
-    app.mount("/", StaticFiles(directory="dist", html=True), name="dist")
+    app.mount("/app", StaticFiles(directory="dist", html=True), name="dist")
 
 @app.post("/generate-brochure")
 async def generate_brochure(request: BrochureRequest):
